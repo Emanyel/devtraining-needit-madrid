@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>package_private</access>
+        <active>true</active>
+        <api_name>x_58872_needit.AllCompanieswithinDescription</api_name>
+        <client_callable>true</client_callable>
+        <description>We're going to populate all companies in the Description field when Requested for field changes.</description>
+        <name>AllCompanieswithinDescription</name>
+        <script><![CDATA[var AllCompanieswithinDescription = Class.create();
+AllCompanieswithinDescription.prototype = Object.extendsObject(global.AbstractAjaxProcessor, {
+	
+	AllCompanieswithinDescription: function(){
+		var companies = new GlideRecord("core_company");
+		companies.query();
+		
+		var arrayRecords = "";
+		while(companies.next()){
+			arrayRecords += companies.name +',';
+		}
+		
+		return arrayRecords;
+	},
+
+    type: 'AllCompanieswithinDescription'
+});]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-03-30 17:45:02</sys_created_on>
+        <sys_id>61e32536db330010425061ca0b961970</sys_id>
+        <sys_mod_count>22</sys_mod_count>
+        <sys_name>AllCompanieswithinDescription</sys_name>
+        <sys_package display_value="NeedIt" source="x_58872_needit">6ead8e780f603200cd674f8ce1050ed1</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="NeedIt">6ead8e780f603200cd674f8ce1050ed1</sys_scope>
+        <sys_update_name>sys_script_include_61e32536db330010425061ca0b961970</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-03-30 18:56:23</sys_updated_on>
+    </sys_script_include>
+</record_update>
